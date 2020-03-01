@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Volley.Mobile.Forms.Controls"
+             xmlns:mvcar="clr-namespace:Volley.Mobile.Forms.Controls.MVCarousel"
+             xmlns:ftab="clr-namespace:Xam.Plugin.TabView;assembly=Xam.Plugin.TabView"
+             xmlns:abstractions="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="Volley.Mobile.Forms.Views.MainPage"
+             xmlns:prism="http://prismlibrary.com"  Title="試合"
+             prism:ViewModelLocator.AutowireViewModel="True">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <mvcar:Scoreboard x:Name="SB" Grid.Row="1" CurrentBallTeam="{Binding CurrentBallTeam.Value, Mode=OneWay}"
+                          PlayersA="{Binding InputPlayerA.Value, Mode=OneWay}"
+                          PlayersB="{Binding InputPlayerB.Value, Mode=OneWay}"
+                          IsFlipped="{Binding IsEndFlipped.Value, Mode=OneWay}"
+                          PointCountA="{Binding PointCountA.Value, Mode=OneWay}"
+                          PointCountB="{Binding PointCountB.Value, Mode=OneWay}"
+                          GameCountA="{Binding GameCountA.Value, Mode=OneWay}"
+                          GameCountB="{Binding GameCountB.Value, Mode=OneWay}"
+                          SetCountA="{Binding SetCountA.Value, Mode=OneWay}"
+                          SetCountB="{Binding SetCountB.Value, Mode=OneWay}" />
+        <ftab:TabViewControl Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="Fill">
+            <ftab:TabViewControl.ItemSource>
+                <ftab:TabItem HeaderText="入力">
+                    <controls:MatchInput x:Name="MIMain"
+                                         PlayersA="{Binding InputPlayerA.Value, Mode=OneWay}"
+                                         PlayersB="{Binding InputPlayerB.Value, Mode=OneWay}"
+                                         IsFlipped="{Binding IsInputFlipped.Value, Mode=OneWay}"
+                                         IsService="{Binding IsService.Value, Mode=OneWay}"
+                                         IsPostService="{Binding IsPostService.Value, Mode=OneWay}"
+                                         PreviousPlayer="{Binding PreviousPlayer.Value, Mode=OneWay}"
+                                         CommandOnLet="{Binding CommandOnLet}"
+                                         CommandOnCanceled="{Binding CommandOnCanceled}"
+                                         CommandOnReceivedNet="{Binding CommandOnReceivedNet}"
+                                         CommandOnReceivedErrored="{Binding CommandOnReceivedErrored}"
+                                         CommandOnReceiverErrored="{Binding CommandOnReceiverErrored}"
+                                         CommandOnReceiverReceived="{Binding CommandOnReceiverReceived}"
+                                         CommandOnReceivedWonAPoint="{Binding CommandOnReceivedWonAPoint}" />
+                </ftab:TabItem>
+                <ftab:TabItem HeaderText="統計">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <CarouselView x:Name="CVPlayerStats" ItemsSource="{Binding StatPlayersItemSource.Value, Mode=OneWay}">
+                            <CarouselView.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0" Text="{Binding Player.Name}" BackgroundColor="{Binding Color}"
+                                               HorizontalTextAlignment="Center" />
+                                        <mvcar:Statboard Stats="{Binding Stats}" Grid.Row="1">
+                                        </mvcar:Statboard>
+                                    </Grid>
+                                </DataTemplate>
+                            </CarouselView.ItemTemplate>
+                        </CarouselView>
+                    </Grid>
+                </ftab:TabItem>
+            </ftab:TabViewControl.ItemSource>
+        </ftab:TabViewControl>
+    </Grid>
+</ContentPage>

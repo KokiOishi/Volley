@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:controls="clr-namespace:Volley.Mobile.Forms.Controls"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Name="MV"
+             x:Class="Volley.Mobile.Forms.Controls.StatPercentagePresenter">
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ProgressBar Grid.Row="0" Progress="{Binding Value, Source={x:Reference MV}, Mode=OneWay}" Margin="0"
+                     HeightRequest="15" ScaleY="5" ProgressColor="{Binding Color, Source={x:Reference MV}, Mode=OneWay}" />
+        <CollectionView Grid.Row="1" ItemsSource="{Binding ItemsToShow.Value, Source={x:Reference MV}, Mode=OneWay}"
+                        HorizontalOptions="Fill" VerticalOptions="Fill" Margin="0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="controls:StatItem">
+                    <ViewCell>
+                        <ViewCell.View>
+                            <ProgressBar ProgressColor="{Binding Color}" Progress="{Binding Value}" Margin="0" HeightRequest="5" ScaleY="5" />
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentView>

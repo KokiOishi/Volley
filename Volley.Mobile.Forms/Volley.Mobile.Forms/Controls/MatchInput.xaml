@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView x:Name="MView"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:local="clr-namespace:Volley.Mobile.Forms.Controls"
+             xmlns:forms="clr-namespace:Volley.Mobile.Forms"
+             xmlns:gener="clr-namespace:System.Collections.Generic;assembly=netstandard"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Volley.Mobile.Forms.Controls.MatchInput">
+    <Grid ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="{Binding ReceiverWidth.Value, Source={x:Reference MView}, Mode=OneWay}" />
+            <ColumnDefinition Width="{Binding ServerWidth.Value, Source={x:Reference MView}, Mode=OneWay}" />
+        </Grid.ColumnDefinitions>
+
+        <ListView x:Name="LVReceiver" Grid.Column="{Binding ReceiverColumn.Value, Source={x:Reference MView}, Mode=OneWay}" Grid.Row="0"
+                  ItemsSource="{Binding Receivers.Value, Source={x:Reference MView}, Mode=OneWay}" HasUnevenRows="True"
+                  VerticalOptions="Fill" HorizontalOptions="Fill">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="forms:PlayerModel">
+                    <ViewCell>
+                        <local:ReceiverInput
+                               Player="{Binding Player}" HorizontalOptions="Fill" VerticalOptions="Fill" BackgroundColor="{Binding Color}"
+                               IsFlipped="{Binding Source={x:Reference MView}, Path=IsFlipped, Mode=OneWay}"
+                               IsService="{Binding Source={x:Reference MView}, Path=IsService, Mode=OneWay}"
+                               CommandOnErrored="{Binding Source={x:Reference MView}, Path=CommandOnReceiverErrored, Mode=OneWay}"
+                               CommandOnReceive="{Binding Source={x:Reference MView}, Path=CommandOnReceiverReceived, Mode=OneWay}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView x:Name="LVServer" Grid.Column="{Binding ServerColumn.Value, Source={x:Reference MView}, Mode=OneWay}" Grid.Row="0"
+                  IsVisible="{Binding IsReceivable.Value, Source={x:Reference MView}, Mode=OneWay}"
+                  ItemsSource="{Binding Servers.Value, Source={x:Reference MView}, Mode=OneWay}" HasUnevenRows="True"
+                  VerticalOptions="Fill" HorizontalOptions="Fill">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="forms:PlayerModelWithEnability">
+                    <ViewCell>
+                        <local:ReceivedInput IsEnabled="{Binding IsEnabled}"
+                               HorizontalOptions="Fill" VerticalOptions="Fill" Player="{Binding Player}" BackgroundColor="{Binding Color}"
+                               CommandOnErrored="{Binding Source={x:Reference MView}, Path=CommandOnReceivedErrored, Mode=OneWay}"
+                               CommandOnNet="{Binding Source={x:Reference MView}, Path=CommandOnReceivedNet, Mode=OneWay}"
+                               CommandOnWinner="{Binding Source={x:Reference MView}, Path=CommandOnReceivedWonAPoint, Mode=OneWay}" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="BCancel" Grid.Column="0" Text="直前の入力を取り消す"
+                Command="{Binding CommandOnCanceled, Source={x:Reference MView}, Mode=OneWay}" />
+            <Button x:Name="BLet" Grid.Column="1" Text="{Binding LetButtonText.Value, Source={x:Reference MView}, Mode=OneWay}"
+                Command="{Binding CommandOnLet, Source={x:Reference MView}, Mode=OneWay}" />
+        </Grid>
+    </Grid>
+</ContentView>

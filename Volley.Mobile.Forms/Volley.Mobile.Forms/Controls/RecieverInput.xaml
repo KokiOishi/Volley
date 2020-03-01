@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView x:Name="CVReceiver"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             x:Class="Volley.Mobile.Forms.Controls.ReceiverInput">
+    <StackLayout>
+        <Grid x:Name="GAction" ColumnSpacing="1" RowSpacing="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="ButtonSF" Grid.Row="0" Grid.Column="{Binding StrokeColumn.Value, Source={x:Reference CVReceiver}, Mode=OneWay}"
+                    Text="SF" Margin="0" BackgroundColor="Transparent" BorderColor="#FFFFFF" BorderWidth="3"
+                    IsEnabled="{Binding IsNotService.Value, Source={x:Reference CVReceiver}, Mode=OneWay}" />
+            <Button x:Name="ButtonVF" Grid.Row="0" Grid.Column="{Binding VolleyColumn.Value, Source={x:Reference CVReceiver}, Mode=OneWay}"
+                    Text="VF" Margin="0" BackgroundColor="Transparent" BorderColor="#FFFFFF" BorderWidth="3" />
+            <Button x:Name="ButtonErrored" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="Errored" Margin="0"
+                    BackgroundColor="Transparent" BorderColor="#000000" BorderWidth="2" />
+            <Button x:Name="ButtonSB" Grid.Row="2" Grid.Column="{Binding StrokeColumn.Value, Source={x:Reference CVReceiver}, Mode=OneWay}"
+                    Text="SB" Margin="0" BackgroundColor="Transparent" BorderColor="#FFFFFF" BorderWidth="3"
+                    IsEnabled="{Binding IsNotService.Value, Source={x:Reference CVReceiver}, Mode=OneWay}" />
+            <Button x:Name="ButtonVB" Grid.Row="2" Grid.Column="{Binding VolleyColumn.Value, Source={x:Reference CVReceiver}, Mode=OneWay}"
+                    Text="VB" Margin="0" BackgroundColor="Transparent" BorderColor="#FFFFFF" BorderWidth="3"
+                    IsEnabled="{Binding IsNotService.Value, Source={x:Reference CVReceiver}, Mode=OneWay}" />
+        </Grid>
+    </StackLayout>
+</ContentView>

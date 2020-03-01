@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView x:Name="MView"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:volleyMF ="clr-namespace:Xamarin.Forms"
+             x:Class="Volley.Mobile.Forms.Controls.PlayerSelectingButton">
+    <StackLayout>
+        <CarouselView x:Name="CVMain" ItemsSource="{Binding Items, Mode=OneWay}"
+                      Position="1" PositionChanged="CVMain_PositionChanged" CurrentItemChanged="CVMain_CurrentItemChanged">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Button VerticalOptions="Center" HorizontalOptions="Center"
+                           Text="{TemplateBinding Name.Value}" />
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+        <Button x:Name="SinglesButton" Text="{Binding Path=Text, Source={x:Reference MView}, Mode=OneWay}"
+                Clicked="SinglesButton_Clicked" />
+    </StackLayout>
+</ContentView>

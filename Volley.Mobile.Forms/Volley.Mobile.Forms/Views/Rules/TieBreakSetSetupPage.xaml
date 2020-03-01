@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:s="clr-namespace:Volley.Mobile.Forms.Views.SetupElement"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Title="タイブレークセットの詳細設定"
+             x:Class="Volley.Mobile.Forms.Views.Rules.TieBreakSetSetupPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TableView Intent="Settings">
+            <TableRoot>
+                <TableSection Title="セット">
+                    <s:StepperFormCell Text="最小セット数差" Description="セットを取るために必要なゲーム数の差" Increment="1" Maximum="4" Minimum="1"
+                                       Value="{Binding LeastWinningGameDifference, Mode=TwoWay}" />
+                </TableSection>
+                <TableSection Title="スタンダードゲーム">
+                    <SwitchCell Text="デュース" On="{Binding HasDeuceOnNormalGames, Mode=TwoWay}" />
+                </TableSection>
+                <TableSection Title="タイブレークゲーム">
+                    <s:StepperFormCell Text="最小得点数" Description="ゲームを取るために必要なゲーム数" Increment="1" Maximum="64" Minimum="1"
+                                       Value="{Binding TieBreakGameLeastWinningPoint, Mode=TwoWay}" />
+                    <s:StepperFormCell Text="最小得点数差" Description="ゲームを取るために必要なゲーム数の差" Increment="1" Maximum="4" Minimum="1"
+                                       Value="{Binding TieBreakGameLeastWinningPointDifference, Mode=TwoWay}" />
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        <Button Text="次へ" Grid.Row="1" Command="{Binding CommandNext}" />
+    </Grid>
+</ContentPage>

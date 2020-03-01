@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" Padding="15,0,0,0" IsEnabled="True"
+             x:Class="Volley.Mobile.Forms.Views.SetupElement.StepperFormCellXaml" x:Name="VC">
+    <Grid ColumnSpacing="4" HorizontalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Grid.Row="0" Text="{Binding Text}" VerticalTextAlignment="Center" IsEnabled="{Binding IsEditable}" />
+        <Label Grid.Column="0" Grid.Row="1" Text="{Binding Description}" VerticalTextAlignment="End" FontSize="Micro"  IsEnabled="{Binding IsEditable}" />
+        <Label Grid.Column="1" Grid.RowSpan="2" Text="{Binding Value, Source={x:Reference St}}" FontSize="Medium"
+               VerticalTextAlignment="Center" HorizontalTextAlignment="End"  IsEnabled="{Binding IsEditable}" />
+        <Stepper x:Name="St" Grid.Column="2" Grid.RowSpan="2" Increment="{Binding Increment}" Value="{Binding Value, Mode=TwoWay}"
+                 Maximum="{Binding Maximum}" Minimum="{Binding Minimum}" IsEnabled="{Binding IsEditable}" />
+    </Grid>
+</ContentView>

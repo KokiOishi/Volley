@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"  Title="プレイヤー設定"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Volley.Mobile.Forms.Views.PlayerSetupPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="PlayerItemTemplate">
+                <ViewCell>
+                    <Grid BackgroundColor="{Binding Color}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Text="{Binding Name}" />
+                        <Button Grid.Column="1" Margin="1" BackgroundColor="White" Text="詳細" Command="{Binding CommandDetails}" />
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TableView Intent="Settings" HasUnevenRows="True">
+            <TableRoot>
+                <TableSection Title="Aチーム">
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout>
+                                <ListView ItemTemplate="{StaticResource PlayerItemTemplate}" ItemsSource="{Binding PlayersA}"
+                                           HasUnevenRows="false" RowHeight="40">
+                                </ListView>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </TableSection>
+                <TableSection Title="Bチーム">
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout>
+                                <ListView ItemTemplate="{StaticResource PlayerItemTemplate}" ItemsSource="{Binding PlayersB}"
+                                           HasUnevenRows="false" RowHeight="40">
+                                </ListView>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        <Button Grid.Row="1" Text="試合開始" Command="{Binding CommandStart}" />
+    </Grid>
+</ContentPage>

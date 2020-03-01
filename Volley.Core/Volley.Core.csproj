@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Volley</RootNamespace>
+    <LangVersion>7.3</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>Volley.Core.xml</DocumentationFile>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>Volley.Core.xml</DocumentationFile>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Tournaments\" />
+    <Folder Include="Matches\Rules\" />
+    <Folder Include="Sets\" />
+    <Folder Include="Strategy\" />
+    <Folder Include="Matches\Competitors\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Matches\Rules\Enability.cs" />
+    <Compile Remove="Team\TeamSingles.cs" />
+    <Compile Remove="Matches\Competitors\Competitors.cs" />
+  </ItemGroup>
+</Project>

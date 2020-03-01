@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView x:Name="MView"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Volley.Mobile.Forms.Controls.MVCarousel.Scoreboard">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="PlayerView">
+                <ViewCell>
+                    <Label Text="{Binding Player.Name}" HorizontalOptions="FillAndExpand" VerticalOptions="Center"
+                           BackgroundColor="{Binding Color}" HorizontalTextAlignment="Center"
+                           FontSize="{Binding PlayersFontSize.Value, Source={x:Reference MView}, Mode=OneWay}" />
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <Grid x:Name="GMain">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <!--プレイヤーリスト-->
+        <ListView x:Name="PlayerListA" Grid.Column="{Binding PListGridColumnA.Value, Source={x:Reference MView}, Mode=OneWay}"
+                  Grid.Row="0" Grid.ColumnSpan="3" ItemTemplate="{StaticResource PlayerView}" VerticalOptions="StartAndExpand"
+                  ItemsSource="{Binding PlayersA, Source={x:Reference MView}, Mode=OneWay}" HasUnevenRows="False"
+                  RowHeight="{Binding PlayersRowHeight.Value, Source={x:Reference MView}, Mode=OneWay}"
+                  HeightRequest="{Binding PlayersHeightRequest.Value, Source={x:Reference MView}, Mode=OneWay}"
+                  SelectionMode="None" VerticalScrollBarVisibility="Never">
+        </ListView>
+        <ListView x:Name="PlayerListB" Grid.Column="{Binding PListGridColumnB.Value, Source={x:Reference MView}, Mode=OneWay}"
+                  Grid.Row="0" Grid.ColumnSpan="3" ItemTemplate="{StaticResource PlayerView}" VerticalOptions="StartAndExpand"
+                  ItemsSource="{Binding PlayersB, Source={x:Reference MView}, Mode=OneWay}" HasUnevenRows="False"
+                  RowHeight="{Binding PlayersRowHeight.Value, Source={x:Reference MView}, Mode=OneWay}"
+                  HeightRequest="{Binding PlayersHeightRequest.Value, Source={x:Reference MView}, Mode=OneWay}"
+                  SelectionMode="None" VerticalScrollBarVisibility="Never">
+        </ListView>
+        <!--左側ボールインジケータ-->
+        <BoxView Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Color="#E3C434"
+                 Opacity="{Binding BallIndicatorOpacityLeft.Value, Source={x:Reference MView}, Mode=OneWay}" />
+        <!--A側スコア-->
+        <Label Grid.Column="{Binding GridColumnSetA.Value, Source={x:Reference MView}, Mode=OneWay}" Grid.Row="1"
+               FontSize="{Binding SetCountFontSize.Value, Source={x:Reference MView}, Mode=OneWay}"
+               Text="{Binding SetCountA, Source={x:Reference MView}, Mode=OneWay}" HorizontalTextAlignment="End" VerticalTextAlignment="Start" />
+        <Label Grid.Column="{Binding GridColumnA.Value, Source={x:Reference MView}, Mode=OneWay}" Grid.Row="1" Grid.ColumnSpan="2"
+               FontSize="{Binding GameCountFontSize.Value, Source={x:Reference MView}, Mode=OneWay}"
+               Text="{Binding GameCountA, Source={x:Reference MView}, Mode=OneWay}" HorizontalTextAlignment="End" VerticalTextAlignment="Start" />
+        <Label Grid.Column="{Binding GridColumnA.Value, Source={x:Reference MView}, Mode=OneWay}" Grid.Row="2" Grid.ColumnSpan="2"
+               FontSize="{Binding PointCountFontSize.Value, Source={x:Reference MView}, Mode=OneWay}"
+               Text="{Binding PointCountA, Source={x:Reference MView}, Mode=OneWay}" HorizontalTextAlignment="End" VerticalTextAlignment="Start" />
+        <!--ハイフン-->
+        <Label Grid.Column="3" Grid.Row="1" FontSize="{Binding GameCountFontSize.Value, Source={x:Reference MView}, Mode=OneWay}"
+               Text="{Binding Hyphen.Value, Source={x:Reference MView}, Mode=OneWay}"
+               VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+        <Label Grid.Column="3" Grid.Row="2" FontSize="{Binding PointCountFontSize.Value, Source={x:Reference MView}, Mode=OneWay}"
+               Text="{Binding Hyphen.Value, Source={x:Reference MView}, Mode=OneWay}"
+               VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" />
+        <!--B側スコア-->
+        <Label Grid.Column="{Binding GridColumnSetB.Value, Source={x:Reference MView}, Mode=OneWay}" Grid.Row="1"
+               FontSize="{Binding SetCountFontSize.Value, Source={x:Reference MView}, Mode=OneWay}"
+               Text="{Binding SetCountB, Source={x:Reference MView}, Mode=OneWay}" VerticalTextAlignment="Start" />
+        <Label Grid.Column="{Binding GridColumnB.Value, Source={x:Reference MView}, Mode=OneWay}" Grid.Row="1" Grid.ColumnSpan="2"
+               FontSize="{Binding GameCountFontSize.Value, Source={x:Reference MView}, Mode=OneWay}"
+               Text="{Binding GameCountB, Source={x:Reference MView}, Mode=OneWay}" VerticalTextAlignment="Start" />
+        <Label x:Name="LB" Grid.Column="{Binding GridColumnB.Value, Source={x:Reference MView}, Mode=OneWay}" Grid.Row="2"
+               Grid.ColumnSpan="2" FontSize="{Binding PointCountFontSize.Value, Source={x:Reference MView}, Mode=OneWay}"
+               Text="{Binding PointCountB, Source={x:Reference MView}, Mode=OneWay}" VerticalTextAlignment="Start" />
+        <!--右側ボールインジケータ-->
+        <BoxView Grid.Column="6" Grid.Row="1" Grid.RowSpan="2" Color="#E3C434"
+                 Opacity="{Binding BallIndicatorOpacityRight.Value, Source={x:Reference MView}, Mode=OneWay}" />
+    </Grid>
+</ContentView>

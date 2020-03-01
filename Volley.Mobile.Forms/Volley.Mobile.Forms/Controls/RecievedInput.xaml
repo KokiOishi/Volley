@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView x:Name="CVReceived"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="Volley.Mobile.Forms.Controls.ReceivedInput">
+    <Grid x:Name="GAction" ColumnSpacing="1" RowSpacing="1" MinimumHeightRequest="150">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Button x:Name="ButtonWinner" Grid.Row="0" Text="Winner" Margin="0" BorderWidth="3" BorderColor="#FFFFFF"
+                BackgroundColor="{Binding ButtonsBGColor.Value, Source={x:Reference CVReceived}, Mode=OneWay}" />
+        <Button x:Name="ButtonErrored" Grid.Row="1" Text="Errored" Margin="0" BorderColor="#0000000"  BorderWidth="2"
+                BackgroundColor="{Binding ButtonsBGColor.Value, Source={x:Reference CVReceived}, Mode=OneWay}" />
+        <Button x:Name="ButtonNet" Grid.Row="2" Text="U.Error" Margin="0" BorderColor="#FFFFFF" BorderWidth="3"
+                BackgroundColor="{Binding ButtonsBGColor.Value, Source={x:Reference CVReceived}, Mode=OneWay}" />
+    </Grid>
+</ContentView>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Height="40"
+             x:Class="Volley.Mobile.Forms.Views.SetupElement.PickerFormCellXaml" x:Name="VC">
+    <Grid ColumnSpacing="4" HorizontalOptions="FillAndExpand">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="4" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Text="{Binding Name, Mode=OneWay}" FontSize="Medium"  VerticalTextAlignment="Center" />
+        <Picker Grid.Column="2" x:Name="St" Title="{Binding Title, Mode=OneWay}" ItemsSource="{Binding Items, Mode=OneWay}"
+                    SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
+                    SelectedItem="{Binding SelectedItem, Mode=TwoWay}" />
+    </Grid>
+</ContentView>

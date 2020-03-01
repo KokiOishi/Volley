@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:s="clr-namespace:Volley.Mobile.Forms.Views.SetupElement"
+             mc:Ignorable="d" Title="ルール設定"
+             x:Class="Volley.Mobile.Forms.Views.MatchSetupPage">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TableView Intent="Settings">
+                <TableRoot>
+                    <TableSection Title="ルール">
+                        <SwitchCell Text="ダブルス" On="{Binding IsDoubles, Mode=TwoWay}" />
+                        <s:StepperFormCell Text="セット数" Description="マッチを取るために必要なセット数" Increment="1" Maximum="100" Minimum="1"
+                                       Value="{Binding SetsPerMatch, Mode=TwoWay}" />
+                        <s:StepperFormCell Text="セット毎のゲーム数" Description="セットを取るために必要なゲーム数" Increment="1" Maximum="100"
+                                       Minimum="1" Value="{Binding GamesPerSet, Mode=TwoWay}" />
+
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid Padding="15,0,0,0" ColumnSpacing="4" HorizontalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="3*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="ゲームカウント" VerticalTextAlignment="Center" />
+                                    <Picker x:Name="St" Grid.Column="1" Title="形式を選択してください..."
+                                        SelectedIndex="{Binding GameCountTypeSelectionIndex, Mode=TwoWay}">
+                                        <Picker.Items>
+                                            <x:String>アドバンテージセット(通常)</x:String>
+                                            <x:String>タイブレークセット</x:String>
+                                            <!-- <x:String>カスタム</x:String>-->
+                                        </Picker.Items>
+                                    </Picker>
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid Padding="15,0,0,0" ColumnSpacing="4" HorizontalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*" />
+                                        <ColumnDefinition Width="3*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="セットカウント" VerticalTextAlignment="Center" />
+                                    <Picker Grid.Column="1" Title="形式を選択してください..."
+                                        SelectedIndex="{Binding SetCountTypeSelectionIndex, Mode=TwoWay}">
+                                        <Picker.Items>
+                                            <x:String>通常</x:String>
+                                            <x:String>マッチタイブレーク</x:String>
+                                        </Picker.Items>
+                                    </Picker>
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                        <s:StepperFormCell Text="マッチタイブレークの得点数" Description="セットを取るために必要な得点数" Increment="1" Maximum="100"
+                                       Minimum="1" Value="{Binding MatchTieBreakLeastWinningPoints, Mode=TwoWay}"
+                                           IsEditable="{Binding IsMatchTieBreakCellsEnabled.Value, Mode=OneWay}" />
+                        <s:StepperFormCell Text="マッチタイブレークの得点数差" Description="セットを取るために必要な得点数の差" Increment="1" Maximum="4"
+                                       Minimum="1" Value="{Binding MatchTieBreakLeastWinningPointDifference, Mode=TwoWay}"
+                                           IsEditable="{Binding IsMatchTieBreakCellsEnabled.Value, Mode=OneWay}" />
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+            <Button Text="次へ" Grid.Row="1" Command="{Binding CommandNext}" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

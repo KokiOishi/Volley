@@ -1,0 +1,1155 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Volley.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Volley.IParametricFactory`2">
+            <summary>
+            Defines a base infrastructure of a simple Factory patterned object.
+            </summary>
+        </member>
+        <member name="M:Volley.IParametricFactory`2.Create(`1)">
+            <summary>
+            Create the <typeparamref name="T"/> instance using specified param.
+            </summary>
+            <param name="param">Parameter.</param>
+        </member>
+        <member name="T:Volley.Extensions">
+            <summary>
+            Extensions
+            </summary>
+        </member>
+        <member name="M:Volley.Extensions.SetAndNotifyIfChanged``2(``1,System.ComponentModel.PropertyChangedEventHandler,``0,``0,System.String)">
+            <summary>
+            Raises <see cref="E:System.ComponentModel.INotifyPropertyChanged.PropertyChanged"/> event when the <paramref name="value"/> differs from <paramref name="target"/>.
+            </summary>
+            <typeparam name="TValue"></typeparam>
+            <typeparam name="TSender"></typeparam>
+            <param name="sender"></param>
+            <param name="event"></param>
+            <param name="target"></param>
+            <param name="value"></param>
+            <param name="pName"></param>
+        </member>
+        <member name="T:Volley.Games.Game`1">
+            <summary>
+            Defines a base infrastructure of the tennis "game".
+            </summary>
+        </member>
+        <member name="M:Volley.Games.Game`1.#ctor(Volley.Sets.Set{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Volley.Games.Game`1"/> class.
+            </summary>
+            <param name="set">Set.</param>
+        </member>
+        <member name="P:Volley.Games.Game`1.Set">
+            <summary>
+            Gets the <see cref="T:Volley.Sets.Set`1"/> contains this <see cref="T:Volley.Games.Game`1"/>.
+            </summary>
+            <value>The set.</value>
+        </member>
+        <member name="P:Volley.Games.Game`1.ServiceTeam">
+            <summary>
+            Gets the service team.
+            </summary>
+            <value>The service team.</value>
+        </member>
+        <member name="P:Volley.Games.Game`1.ReceiveTeam">
+            <summary>
+            Gets the Receive team.
+            </summary>
+            <value>The Receive team.</value>
+        </member>
+        <member name="P:Volley.Games.Game`1.PointCounter">
+            <summary>
+            Gets the point counter for both team.
+            </summary>
+        </member>
+        <member name="P:Volley.Games.Game`1.TeamA">
+            <summary>
+            Gets the team a.
+            </summary>
+            <value>The team a.</value>
+        </member>
+        <member name="P:Volley.Games.Game`1.PointA">
+            <summary>
+            Gets the point count of a team.
+            </summary>
+            <value>The point count a.</value>
+        </member>
+        <member name="P:Volley.Games.Game`1.TeamB">
+            <summary>
+            Gets the team b.
+            </summary>
+            <value>The team b.</value>
+        </member>
+        <member name="P:Volley.Games.Game`1.PointB">
+            <summary>
+            Gets the point count of b team.
+            </summary>
+            <value>The point count b.</value>
+        </member>
+        <member name="P:Volley.Games.Game`1.ServiceRight">
+            <summary>
+            Gets the service right.
+            </summary>
+            <value>The service right.</value>
+        </member>
+        <member name="P:Volley.Games.Game`1.WinnerTeam">
+            <summary>
+            Gets the winner team.
+            </summary>
+            <value>The winner team.</value>
+        </member>
+        <member name="P:Volley.Games.Game`1.ServicePlayer">
+            <summary>
+            Gets the service player.
+            </summary>
+            <value>The service player.</value>
+        </member>
+        <member name="P:Volley.Games.Game`1.Points">
+            <summary>
+            Gets the list of points.
+            </summary>
+            <value>The points.</value>
+        </member>
+        <member name="M:Volley.Games.Game`1.StartGame">
+            <summary>
+            Starts the game.
+            </summary>
+        </member>
+        <member name="M:Volley.Games.Game`1.OnGameStart">
+            <summary>
+            Called when the game is starting.
+            </summary>
+        </member>
+        <member name="M:Volley.Games.Game`1.RallyFinished(Volley.Pointing.Point{`0})">
+            <summary>
+            Called when the rally is over.
+            </summary>
+            <param name="point">Point.</param>
+        </member>
+        <member name="M:Volley.Games.Game`1.CancelRally">
+            <summary>
+            Cancels the prvious rally.
+            </summary>
+        </member>
+        <member name="M:Volley.Games.Game`1.OnRallyFinished(Volley.Pointing.Point{`0})">
+            <summary>
+            Called when the rally is over.
+            Return <see langword="true"/> if the game continues.
+            </summary>
+            <param name="point">Point.</param>
+        </member>
+        <member name="M:Volley.Games.Game`1.OnRallyCanceled(Volley.Pointing.Point{`0})">
+            <summary>
+            Called when the rally is canceled.
+            </summary>
+            <param name="point">Point.</param>
+        </member>
+        <member name="M:Volley.Games.Game`1.OnGameOver">
+            <summary>
+            Called when the game is over.
+            Move onto the next game.
+            </summary>
+        </member>
+        <member name="T:Volley.Matches.EnumTeams">
+            <summary>
+            Initial service.
+            </summary>
+        </member>
+        <member name="F:Volley.Matches.EnumTeams.TeamA">
+            <summary>
+            The team a.
+            </summary>
+        </member>
+        <member name="F:Volley.Matches.EnumTeams.TeamB">
+            <summary>
+            The team b.
+            </summary>
+        </member>
+        <member name="T:Volley.Matches.EnumTeamsUtils">
+            <summary>
+            Provides some functions to manipulate <see cref="T:Volley.Matches.EnumTeams"/>
+            </summary>
+        </member>
+        <member name="M:Volley.Matches.EnumTeamsUtils.Flip(Volley.Matches.EnumTeams)">
+            <summary>
+            Flips the specified <see cref="T:Volley.Matches.EnumTeams"/>.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Volley.Matches.EnumTeamsUtils.Switch``1(Volley.Matches.EnumTeams,``0,``0)">
+            <summary>
+            Switches the specified two <typeparamref name="T"/> values by the specified <see cref="T:Volley.Matches.EnumTeams"/> value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <param name="valueA">The value to return when the <paramref name="value"/> is <see cref="F:Volley.Matches.EnumTeams.TeamA"/>.</param>
+            <param name="valueB">The value to return when the <paramref name="value"/> is <see cref="F:Volley.Matches.EnumTeams.TeamB"/>.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Volley.Matches.Competitors.ServiceRightManager`1">
+            <summary>
+            Service right manager.
+            </summary>
+        </member>
+        <member name="M:Volley.Matches.Competitors.ServiceRightManager`1.#ctor(`0,`0,Volley.Matches.EnumTeams)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Volley.Matches.Competitors.ServiceRightManager`1"/> class.
+            </summary>
+            <param name="teamA">Team a.</param>
+            <param name="teamB">Team b.</param>
+            <param name="initialService">Initial service.</param>
+        </member>
+        <member name="P:Volley.Matches.Competitors.ServiceRightManager`1.CurrentServiceRight">
+            <summary>
+            Gets the current service right.
+            </summary>
+            <value>The current service right.</value>
+        </member>
+        <member name="P:Volley.Matches.Competitors.ServiceRightManager`1.TeamA">
+            <summary>
+            Gets the team a.
+            </summary>
+            <value>The team a.</value>
+        </member>
+        <member name="P:Volley.Matches.Competitors.ServiceRightManager`1.TeamB">
+            <summary>
+            Gets the team b.
+            </summary>
+            <value>The team b.</value>
+        </member>
+        <member name="P:Volley.Matches.Competitors.ServiceRightManager`1.ServiceTeam">
+            <summary>
+            Gets the service team.
+            </summary>
+            <value>The service team.</value>
+        </member>
+        <member name="P:Volley.Matches.Competitors.ServiceRightManager`1.ReceiveTeam">
+            <summary>
+            Gets the Receive team.
+            </summary>
+            <value>The Receive team.</value>
+        </member>
+        <member name="M:Volley.Matches.Competitors.ServiceRightManager`1.OnGameOver">
+            <summary>
+            Called when the game is over.
+            </summary>
+        </member>
+        <member name="M:Volley.Matches.Competitors.ServiceRightManager`1.OnGameCancelled">
+            <summary>
+            Called when the game is cancelled.
+            </summary>
+        </member>
+        <member name="T:Volley.Matches.Match`1">
+            <summary>
+            Defines a base infrastructure of tennis match.
+            </summary>
+        </member>
+        <member name="M:Volley.Matches.Match`1.#ctor(`0,`0,Volley.Matches.Rules.MatchRule,Volley.Rules.ISetCounter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Volley.Matches.Match`1"/> class.
+            </summary>
+            <param name="teamA">Team a.</param>
+            <param name="teamB">Team b.</param>
+            <param name="rule">Rule.</param>
+            <param name="initialServiceRight">The service right manager.</param>
+            <param name="setCounter">The set counter.</param>
+        </member>
+        <member name="P:Volley.Matches.Match`1.SetCounter">
+            <summary>
+            Gets the service right.
+            </summary>
+            <value>The service right.</value>
+        </member>
+        <member name="P:Volley.Matches.Match`1.TeamA">
+            <summary>
+            Gets the team a.
+            </summary>
+            <value>The team a.</value>
+        </member>
+        <member name="P:Volley.Matches.Match`1.SetCountA">
+            <summary>
+            Gets the set count of a team.
+            </summary>
+            <value>The set count a.</value>
+        </member>
+        <member name="P:Volley.Matches.Match`1.TeamB">
+            <summary>
+            Gets the team b.
+            </summary>
+            <value>The team b.</value>
+        </member>
+        <member name="P:Volley.Matches.Match`1.SetCountB">
+            <summary>
+            Gets the set count of b team.
+            </summary>
+            <value>The set count b.</value>
+        </member>
+        <member name="P:Volley.Matches.Match`1.Winner">
+            <summary>
+            Gets the winner of the match.
+            </summary>
+            <value>The winner.</value>
+        </member>
+        <member name="P:Volley.Matches.Match`1.Rule">
+            <summary>
+            Gets the rule of this match.
+            </summary>
+            <value>The rule.</value>
+        </member>
+        <member name="P:Volley.Matches.Match`1.Sets">
+            <summary>
+            Gets the list of the sets.
+            None of the Sets in match are stored in it.
+            </summary>
+            <value>The sets.</value>
+        </member>
+        <member name="P:Volley.Matches.Match`1.CurrentSet">
+            <summary>
+            Gets the current set.
+            </summary>
+            <value>The current set.</value>
+        </member>
+        <member name="M:Volley.Matches.Match`1.StartMatch">
+            <summary>
+            Starts the match.
+            </summary>
+        </member>
+        <member name="M:Volley.Matches.Match`1.OnMatchStart">
+            <summary>
+            Called when the match is starting.
+            </summary>
+            <returns>The match start.</returns>
+        </member>
+        <member name="M:Volley.Matches.Match`1.CurrentSetFinished">
+            <summary>
+            Adds the set. Call when the <see cref="P:Volley.Matches.Match`1.CurrentSet"/> finished.
+            </summary>
+        </member>
+        <member name="M:Volley.Matches.Match`1.CancelPreviousSet">
+            <summary>
+            Cancels the last set. Call when the last set information was invalid or incorrect.
+            </summary>
+        </member>
+        <member name="M:Volley.Matches.Match`1.OnSetEnd(Volley.Sets.Set{`0})">
+            <summary>
+            Adds the set. Call when the set got finished.
+            </summary>
+            <param name="set">Set.</param>
+        </member>
+        <member name="M:Volley.Matches.Match`1.OnSetCanceled(Volley.Sets.Set{`0})">
+            <summary>
+            Cancels the last set. Call when the last set information was invalid or incorrect.
+            </summary>
+            <param name="set">Set.</param>
+        </member>
+        <member name="M:Volley.Matches.Match`1.OnMatchOver">
+            <summary>
+            Called when the match is over.
+            </summary>
+        </member>
+        <member name="T:Volley.Matches.Rules.MatchRule">
+            <summary>
+            Represents and manipulates a Match rule.
+            </summary>
+        </member>
+        <member name="M:Volley.Matches.Rules.MatchRule.#ctor(System.Boolean,System.Boolean,System.Int32,System.Int32,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Volley.Matches.Rules.MatchRule"/> class.
+            </summary>
+            <param name="doubles">If set to <c>true</c> the match is a doubles match.</param>
+            <param name="deuce">If set to <c>true</c> the deuce is enabled in the match.</param>
+            <param name="sets">Sets required to win the match.</param>
+            <param name="gamesPerSet">Games required to win the set.</param>
+            <param name="tieBreakEnabled">If set to <c>true</c> the tie break enabled in the match.</param>
+        </member>
+        <member name="P:Volley.Matches.Rules.MatchRule.Doubles">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Volley.Matches.Rules.MatchRule"/> is doubles.
+            </summary>
+            <value><c>true</c> if doubles; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Volley.Matches.Rules.MatchRule.Deuce">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Volley.Matches.Rules.MatchRule"/> has a deuce.
+            </summary>
+            <value><c>true</c> if deuce; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Volley.Matches.Rules.MatchRule.Sets">
+            <summary>
+            Gets how many sets required to win.
+            </summary>
+            <value>The sets.</value>
+        </member>
+        <member name="P:Volley.Matches.Rules.MatchRule.GamesPerSet">
+            <summary>
+            Gets the games per set.
+            </summary>
+            <value>The games per set.</value>
+        </member>
+        <member name="P:Volley.Matches.Rules.MatchRule.TieBreakEnabled">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Volley.Matches.Rules.MatchRule"/>'s tie break enabled.
+            </summary>
+            <value><c>true</c> if tie break enabled; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Volley.Matches.Rules.MatchRule.IsChallengeEnabled">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Volley.Matches.Rules.MatchRule"/> has enabled challenge system.
+            </summary>
+            <value><c>true</c> if is challenge enabled; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Volley.Players.Gender">
+            <summary>
+            Represents a gender.
+            </summary>
+        </member>
+        <member name="F:Volley.Players.Gender.Unidentified">
+            <summary>
+            Unidentified gender
+            </summary>
+        </member>
+        <member name="F:Volley.Players.Gender.Male">
+            <summary>
+            Male
+            </summary>
+        </member>
+        <member name="F:Volley.Players.Gender.Female">
+            <summary>
+            Female
+            </summary>
+        </member>
+        <member name="T:Volley.Players.Hands">
+            <summary>
+            Represents which the "hand" is refered.
+            </summary>
+        </member>
+        <member name="F:Volley.Players.Hands.None">
+            <summary>
+            None of hands.
+            </summary>
+        </member>
+        <member name="F:Volley.Players.Hands.Left">
+            <summary>
+            Left hand
+            </summary>
+        </member>
+        <member name="F:Volley.Players.Hands.Right">
+            <summary>
+            Right hand
+            </summary>
+        </member>
+        <member name="T:Volley.Players.HandSide">
+            <summary>
+            Represents the side(fore/back) of hand.
+            </summary>
+        </member>
+        <member name="F:Volley.Players.HandSide.None">
+            <summary>
+            None of hands
+            </summary>
+        </member>
+        <member name="F:Volley.Players.HandSide.Fore">
+            <summary>
+            ForeHand
+            </summary>
+        </member>
+        <member name="F:Volley.Players.HandSide.Back">
+            <summary>
+            BackHand
+            </summary>
+        </member>
+        <member name="T:Volley.Players.Player">
+            <summary>
+            Represents and manipulates a tennis player.
+            </summary>
+        </member>
+        <member name="M:Volley.Players.Player.#ctor(System.Guid,System.String,Volley.Players.Gender,System.Double,System.Double,Volley.Players.Hands)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Volley.Players.Player"/> class.
+            </summary>
+            <param name="identifier">Identifier.</param>
+            <param name="name">Name.</param>
+            <param name="gender">Gender.</param>
+            <param name="height">Height.</param>
+            <param name="weight">Weight.</param>
+            <param name="dominantHands">Dominant hands.</param>
+        </member>
+        <member name="P:Volley.Players.Player.Identifier">
+            <summary>
+            Gets the identifier of the player.
+            </summary>
+        </member>
+        <member name="P:Volley.Players.Player.Name">
+            <summary>
+            Gets the player's name.
+            </summary>
+        </member>
+        <member name="P:Volley.Players.Player.Gender">
+            <summary>
+            Gets the player's gender.
+            </summary>
+        </member>
+        <member name="P:Volley.Players.Player.Height">
+            <summary>
+            Gets the height of the player.
+            </summary>
+        </member>
+        <member name="P:Volley.Players.Player.Weight">
+            <summary>
+            Gets the weight of the player.
+            </summary>
+        </member>
+        <member name="P:Volley.Players.Player.DominantHands">
+            <summary>
+            Gets the dominant hands.
+            </summary>
+        </member>
+        <member name="T:Volley.Pointing.Point`1">
+            <summary>
+            Defines a base structure of tennis points.
+            </summary>
+        </member>
+        <member name="M:Volley.Pointing.Point`1.#ctor(Volley.Pointing.PointKinds,`0,Volley.Pointing.ShotKind,Volley.Players.HandSide,System.Collections.Generic.IEnumerable{Volley.Receive})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Volley.Points.Point`1"/> class.
+            </summary>
+            <param name="pointKind">Point kind.</param>
+            <param name="winnerTeam">Winner team.</param>
+            <param name="shotKind">Shot kind.</param>
+            <param name="side"></param>
+            <param name="receives">Recieves performed.</param>
+        </member>
+        <member name="P:Volley.Pointing.Point`1.PointKind">
+            <summary>
+            Gets the kind of point.
+            </summary>
+        </member>
+        <member name="P:Volley.Pointing.Point`1.WinnerTeam">
+            <summary>
+            Gets the winner.
+            </summary>
+            <value>The winner.</value>
+        </member>
+        <member name="P:Volley.Pointing.Point`1.ShotKind">
+            <summary>
+            Gets the kind of the shot.
+            </summary>
+            <value>The kind of the shot.</value>
+        </member>
+        <member name="P:Volley.Pointing.Point`1.NumberRallies">
+            <summary>
+            Gets the number of rallies.
+            </summary>
+            <value>The number rallies.</value>
+        </member>
+        <member name="T:Volley.Pointing.PointError`1">
+            <summary>
+            Represents an Error point.
+            </summary>
+        </member>
+        <member name="M:Volley.Pointing.PointError`1.#ctor(`0,Volley.Pointing.ShotKind,Volley.Players.HandSide,System.Collections.Generic.IEnumerable{Volley.Receive},Volley.Players.Player,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Volley.Points.PointError`1"/> class.
+            </summary>
+            <param name="winnerTeam">Winner team.</param>
+            <param name="shotKind">Shot kind that <paramref name="winnerTeam"/> won the point.</param>
+            <param name="numberRallies">Number of rallies.</param>
+            <param name="erroredPlayer">The player errored.</param>
+            <param name="forced">The value which indicates whether the <paramref name="erroredPlayer"/> is forced to error.</param>
+        </member>
+        <member name="P:Volley.Pointing.PointError`1.ErroredPlayer">
+            <summary>
+            Gets the errored player.
+            </summary>
+            <value>The errored player.</value>
+        </member>
+        <member name="P:Volley.Pointing.PointError`1.Forced">
+            <summary>
+            Gets a value indicating whether this <see cref="T:Volley.Points.PointError`1"/> is forced error.
+            </summary>
+            <value><c>true</c> if forced; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="T:Volley.Pointing.PointKinds">
+            <summary>
+            Represents a kind of point.
+            </summary>
+        </member>
+        <member name="F:Volley.Pointing.PointKinds.Error">
+            <summary>
+            Represents the point is error.
+            </summary>
+        </member>
+        <member name="F:Volley.Pointing.PointKinds.Unforced">
+            <summary>
+            Represents the error is not forced.
+            </summary>
+        </member>
+        <member name="F:Volley.Pointing.PointKinds.Winner">
+            <summary>
+            Winner(The point that the opponent did not touch the ball.)
+            </summary>
+        </member>
+        <member name="F:Volley.Pointing.PointKinds.ForcedError">
+            <summary>
+            Forced Error(The point that the opponent touched the ball but could not return the ball.)
+            </summary>
+        </member>
+        <member name="F:Volley.Pointing.PointKinds.UnforcedError">
+            <summary>
+            Unforced Error(The point that the opponent tried to return the ball well but failed.)
+            </summary>
+        </member>
+        <member name="T:Volley.Pointing.PointNumber">
+            <summary>
+            Represents Point number.
+            </summary>
+        </member>
+        <member name="F:Volley.Pointing.PointNumber.Love">
+            <summary>
+            The love.
+            </summary>
+        </member>
+        <member name="F:Volley.Pointing.PointNumber.Fifteen">
+            <summary>
+            The fifteen.
+            </summary>
+        </member>
+        <member name="F:Volley.Pointing.PointNumber.Thirty">
+            <summary>
+            The thirty.
+            </summary>
+        </member>
+        <member name="F:Volley.Pointing.PointNumber.Fourty">
+            <summary>
+            The fourty.
+            </summary>
+        </member>
+        <member name="F:Volley.Pointing.PointNumber.Advantage">
+            <summary>
+            The advantage.
+            </summary>
+        </member>
+        <member name="F:Volley.Pointing.PointNumber.Game">
+            <summary>
+            The game end.
+            </summary>
+        </member>
+        <member name="T:Volley.Pointing.PointServiceDoubleFault`1">
+             <summary>
+            
+             </summary>
+             <typeparam name="TTeam"></typeparam>
+        </member>
+        <member name="M:Volley.Pointing.PointServiceDoubleFault`1.#ctor(`0,Volley.Players.Player,System.Collections.Generic.IEnumerable{Volley.Receive})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Volley.Points.PointError`1"/> class.
+            </summary>
+            <param name="winnerTeam">Winner team.</param>
+            <param name="erroredPlayer">The player errored.</param>
+        </member>
+        <member name="P:Volley.Pointing.PointServiceDoubleFault`1.ErroredPlayer">
+            <summary>
+            Gets the errored player.
+            </summary>
+            <value>The errored player.</value>
+        </member>
+        <member name="T:Volley.Pointing.PointWinner`1">
+            <summary>
+            Represents a winner point.
+            </summary>
+        </member>
+        <member name="M:Volley.Pointing.PointWinner`1.#ctor(Volley.Pointing.PointKinds,`0,Volley.Pointing.ShotKind,Volley.Players.HandSide,System.Collections.Generic.IEnumerable{Volley.Receive},Volley.Players.Player)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Volley.Points.PointWinner`1"/> class.
+            </summary>
+            <param name="pointKind">Point kind.</param>
+            <param name="winnerTeam">Winner team.</param>
+            <param name="shotKind">Shot kind to win the point.</param>
+            <param name="numberRallies">Number of rallies.</param>
+            <param name="actualWinner">Actual winner.</param>
+            <param name="side">Side won the point.</param>
+        </member>
+        <member name="P:Volley.Pointing.PointWinner`1.ActualWinner">
+            <summary>
+            Gets the actual winner.
+            </summary>
+            <value>The actual winner.</value>
+        </member>
+        <member name="T:Volley.Pointing.ShotKind">
+            <summary>
+            Shot kind.
+            </summary>
+        </member>
+        <member name="F:Volley.Pointing.ShotKind.None">
+            <summary>
+            The Nothing (equivalent to Stroke)
+            </summary>
+        </member>
+        <member name="F:Volley.Pointing.ShotKind.Stroke">
+            <summary>
+            The stroke.
+            </summary>
+        </member>
+        <member name="F:Volley.Pointing.ShotKind.Volley">
+            <summary>
+            The volley.
+            </summary>
+        </member>
+        <member name="F:Volley.Pointing.ShotKind.ServiceFault">
+            <summary>
+            The Service fault.
+            </summary>
+        </member>
+        <member name="T:Volley.Receive">
+            <summary>
+            Represents a Receive action.
+            </summary>
+        </member>
+        <member name="M:Volley.Receive.#ctor(Volley.Players.Player,Volley.Players.HandSide,Volley.Pointing.ShotKind)">
+            <summary>
+            TODO:XML DOCUMENT
+            </summary>
+            <param name="receivedPlayer"></param>
+            <param name="side"></param>
+            <param name="kind"></param>
+        </member>
+        <member name="P:Volley.Receive.ReceivedPlayer">
+            <summary>
+            Gets the <see cref="T:Volley.Players.Player"/> who returned the ball.
+            </summary>
+        </member>
+        <member name="P:Volley.Receive.Side">
+            <summary>
+            Gets the value which indicates whether the hand the <see cref="P:Volley.Receive.ReceivedPlayer"/> has used to return.
+            </summary>
+        </member>
+        <member name="P:Volley.Receive.Kind">
+            <summary>
+            Gets the kind of shot, <see cref="F:Volley.Pointing.ShotKind.Stroke"/> or <see cref="F:Volley.Pointing.ShotKind.Volley"/>.
+            </summary>
+        </member>
+        <member name="P:Volley.Rules.FifteenBasedPointCounter.HasDeuce">
+            <summary>
+            <c>true</c> when No-Ad Scoring, otherwise, Standard Scoring.
+            </summary>
+        </member>
+        <member name="P:Volley.Rules.IGameCounter.IsSetOver">
+            <summary>
+            Gets the value which indicates whether the <see cref="!:Set&lt;TTeam&gt;"/> is over or not.
+            </summary>
+        </member>
+        <member name="P:Volley.Rules.IGameCounter.GameCountA">
+            <summary>
+            Gets the game count for A team.
+            </summary>
+        </member>
+        <member name="P:Volley.Rules.IGameCounter.GameCountB">
+            <summary>
+            Gets the game count for B team.
+            </summary>
+        </member>
+        <member name="P:Volley.Rules.IGameCounter.CurrentPointCounter">
+            <summary>
+            Gets the point counter for current games.
+            </summary>
+        </member>
+        <member name="M:Volley.Rules.IGameCounter.IncrementA">
+            <summary>
+            Handles a game addition to A team.
+            </summary>
+        </member>
+        <member name="M:Volley.Rules.IGameCounter.IncrementB">
+            <summary>
+            Handles a game addition to B team.
+            </summary>
+        </member>
+        <member name="M:Volley.Rules.IGameCounter.Rollback">
+            <summary>
+            Handles a game rollbacks.
+            </summary>
+        </member>
+        <member name="T:Volley.Rules.IPointCounter">
+            <summary>
+            Defines a base infrastructure that counts several points.
+            </summary>
+        </member>
+        <member name="P:Volley.Rules.IPointCounter.PointA">
+            <summary>
+            Gets the point for A team.
+            </summary>
+        </member>
+        <member name="P:Volley.Rules.IPointCounter.PointB">
+            <summary>
+            Gets the point for B team.
+            </summary>
+        </member>
+        <member name="P:Volley.Rules.IPointCounter.IsGameSet">
+            <summary>
+            Gets the value which indicates whether the <see cref="T:Volley.Games.Game`1"/> is set or not.
+            </summary>
+        </member>
+        <member name="M:Volley.Rules.IPointCounter.IncrementA">
+            <summary>
+            Handles a point addition to A team.
+            </summary>
+        </member>
+        <member name="M:Volley.Rules.IPointCounter.IncrementB">
+            <summary>
+            Handles a point addition to B team.
+            </summary>
+        </member>
+        <member name="M:Volley.Rules.IPointCounter.DecrementA">
+            <summary>
+            Handles a point deprivation from A team.
+            </summary>
+        </member>
+        <member name="M:Volley.Rules.IPointCounter.DecrementB">
+            <summary>
+            Handles a point deprivation from B team.
+            </summary>
+        </member>
+        <member name="M:Volley.Rules.IPointCounter.Rollback">
+            <summary>
+            Handles a point rollbacks.
+            </summary>
+        </member>
+        <member name="P:Volley.Rules.ISetCounter.IsMatchOver">
+            <summary>
+            Gets the value which indicates whether the <see cref="T:Volley.Matches.Match`1"/> is over or not.
+            </summary>
+        </member>
+        <member name="P:Volley.Rules.ISetCounter.SetCountA">
+            <summary>
+            Gets the set count for A team.
+            </summary>
+        </member>
+        <member name="P:Volley.Rules.ISetCounter.SetCountB">
+            <summary>
+            Gets the set count for B team.
+            </summary>
+        </member>
+        <member name="P:Volley.Rules.ISetCounter.CurrentGameCounter">
+            <summary>
+            Gets the game counter for current set.
+            </summary>
+        </member>
+        <member name="M:Volley.Rules.ISetCounter.IncrementA">
+            <summary>
+            Handles a set addition to A team.
+            </summary>
+        </member>
+        <member name="M:Volley.Rules.ISetCounter.IncrementB">
+            <summary>
+            Handles a set addition to B team.
+            </summary>
+        </member>
+        <member name="M:Volley.Rules.ISetCounter.Rollback">
+            <summary>
+            Handles a set rollbacks.
+            </summary>
+        </member>
+        <member name="T:Volley.Rules.TieBrakingPointCounter">
+            <summary>
+            Counts several points for tie-braking games.
+            </summary>
+        </member>
+        <member name="T:Volley.Sets.Set`1">
+            <summary>
+            Represents the tennis "set".
+            </summary>
+        </member>
+        <member name="M:Volley.Sets.Set`1.#ctor(Volley.Matches.Match{`0})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Volley.Sets.Set`1"/> class.
+            </summary>
+            <param name="match">Match.</param>
+        </member>
+        <member name="P:Volley.Sets.Set`1.Match">
+            <summary>
+            Gets the match.
+            </summary>
+            <value>The match.</value>
+        </member>
+        <member name="P:Volley.Sets.Set`1.TeamA">
+            <summary>
+            Gets the team a.
+            </summary>
+            <value>The team a.</value>
+        </member>
+        <member name="P:Volley.Sets.Set`1.GameCountA">
+            <summary>
+            Gets the game count of a team.
+            </summary>
+            <value>The game count a.</value>
+        </member>
+        <member name="P:Volley.Sets.Set`1.TeamB">
+            <summary>
+            Gets the team b.
+            </summary>
+            <value>The team b.</value>
+        </member>
+        <member name="P:Volley.Sets.Set`1.GameCountB">
+            <summary>
+            Gets the game count of b team.
+            </summary>
+            <value>The game count b.</value>
+        </member>
+        <member name="P:Volley.Sets.Set`1.Winner">
+            <summary>
+            Gets the set's winner.
+            </summary>
+            <value>The set's winner.</value>
+        </member>
+        <member name="P:Volley.Sets.Set`1.Games">
+            <summary>
+            Gets the games.
+            </summary>
+            <value>The games.</value>
+        </member>
+        <member name="P:Volley.Sets.Set`1.CurrentGame">
+            <summary>
+            Gets the current game.
+            </summary>
+            <value>The current game.</value>
+        </member>
+        <member name="M:Volley.Sets.Set`1.StartSet">
+            <summary>
+            Starts the set.
+            </summary>
+        </member>
+        <member name="M:Volley.Sets.Set`1.OnSetStart">
+            <summary>
+            Called when the set is starting.
+            </summary>
+            <returns>The set start.</returns>
+        </member>
+        <member name="M:Volley.Sets.Set`1.CurrentGameFinished">
+            <summary>
+            Called when the <see cref="P:Volley.Sets.Set`1.CurrentGame"/> is over.
+            </summary>
+        </member>
+        <member name="M:Volley.Sets.Set`1.CancelPreviousGame">
+            <summary>
+            Cancels the previous game.
+            Used when the previous set's information was incorrect.
+            </summary>
+        </member>
+        <member name="M:Volley.Sets.Set`1.OnCurrentGameFinished(Volley.Games.Game{`0})">
+            <summary>
+            Called when the <see cref="P:Volley.Sets.Set`1.CurrentGame"/> is over.
+            Prepare and return the next game.
+            </summary>
+            <returns>The current game finished.</returns>
+            <param name="game">Game.</param>
+        </member>
+        <member name="M:Volley.Sets.Set`1.OnPreviousGameCanceled(Volley.Games.Game{`0})">
+            <summary>
+            Called when the previous game is cancelled.
+            </summary>
+            <param name="game">Game.</param>
+        </member>
+        <member name="M:Volley.Sets.Set`1.OnSetOver">
+            <summary>
+            Called when the set is over.
+            Move onto the next set.
+            </summary>
+        </member>
+        <member name="T:Volley.Statistics.MatchStatistics">
+            <summary>
+            Represents some statistics of play data.
+            </summary>
+        </member>
+        <member name="M:Volley.Statistics.MatchStatistics.CalculateMatchStatistics``1(Volley.Matches.Match{``0})">
+            <summary>
+            Calculates some statistics from play data.
+            </summary>
+            <typeparam name="TTeam">Type of Team.</typeparam>
+            <param name="match"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Volley.Statistics.PlayerStatistics">
+            <summary>
+            Represents a statistics of a player.
+            </summary>
+        </member>
+        <member name="P:Volley.Statistics.PlayerStatistics.FirstServiceStatistics">
+            <summary>
+            Gets the value which represents a statistics of the player's first service.
+            </summary>
+        </member>
+        <member name="P:Volley.Statistics.PlayerStatistics.SecondServiceStatistics">
+            <summary>
+            Gets the value which represents a statistics of the player's second service.
+            </summary>
+        </member>
+        <member name="T:Volley.Statistics.PointKindStatistics">
+            <summary>
+            Represents a statistics of the point kinds.
+            </summary>
+        </member>
+        <member name="P:Volley.Statistics.PointKindStatistics.ForehandRatio">
+            <summary>
+            Gets the value which indicates how often the player uses forehand in %.
+            </summary>
+        </member>
+        <member name="P:Volley.Statistics.PointKindStatistics.BackhandRatio">
+            <summary>
+            Gets the value which indicates how often the player uses backhand in %.
+            </summary>
+        </member>
+        <member name="P:Volley.Statistics.PointKindStatistics.StrokeRatio">
+            <summary>
+            Gets the value which indicates how often the player strokes in %.
+            </summary>
+        </member>
+        <member name="P:Volley.Statistics.PointKindStatistics.VolleyRatio">
+            <summary>
+            Gets the value which indicates how often the player volleies in %.
+            </summary>
+        </member>
+        <member name="T:Volley.Statistics.ServiceStatistics">
+            <summary>
+            Represents a statistics of the player's service.
+            </summary>
+        </member>
+        <member name="P:Volley.Statistics.ServiceStatistics.SuccessRate">
+            <summary>
+            Gets the value which indicates how often the player succeeds the specified service.
+            </summary>
+        </member>
+        <member name="P:Volley.Statistics.ServiceStatistics.PointRate">
+            <summary>
+            Gets the value which indicates how often the player wins points with the specified service.
+            </summary>
+        </member>
+        <member name="P:Volley.Statistics.ServiceStatistics.ForehandRatio">
+            <summary>
+            Gets the value which indicates how often the player uses forehand in %.
+            </summary>
+        </member>
+        <member name="P:Volley.Statistics.ServiceStatistics.BackhandRatio">
+            <summary>
+            Gets the value which indicates how often the player uses backhand in %.
+            </summary>
+        </member>
+        <member name="T:Volley.Strategy.IServiceRightManager">
+            <summary>
+            Defines the base infrastructure of the "Service Right" management.
+            </summary>
+        </member>
+        <member name="T:Volley.TeamedValuePair`1">
+            <summary>
+            Holds some values for Team A and B.
+            </summary>
+            <typeparam name="TValue">The type of holding value.</typeparam>
+        </member>
+        <member name="F:Volley.TeamedValuePair`1.ValueA">
+            <summary>
+            The value for team A.
+            </summary>
+        </member>
+        <member name="F:Volley.TeamedValuePair`1.ValueB">
+            <summary>
+            The value for team B.
+            </summary>
+        </member>
+        <member name="M:Volley.TeamedValuePair`1.#ctor(`0,`0)">
+            <summary>
+            TODO: Documentation
+            </summary>
+            <param name="valueA"></param>
+            <param name="valueB"></param>
+        </member>
+        <member name="P:Volley.TeamedValuePair`1.Item(Volley.Matches.EnumTeams)">
+            <summary>
+            Gets the value for specified <paramref name="team"/>.
+            </summary>
+            <param name="team">The <see cref="T:Volley.Matches.EnumTeams"/> value to specify the team.</param>
+            <returns>The value for specified <paramref name="team"/>.</returns>
+        </member>
+        <member name="M:Volley.TeamedValuePair`1.Deconstruct(`0@,`0@)">
+            <summary>
+            TODO: Documentation
+            </summary>
+            <param name="valueA"></param>
+            <param name="valueB"></param>
+        </member>
+        <member name="T:Volley.Team.ITeam">
+            <summary>
+            Defines a base infrastructure of a team.
+            </summary>
+        </member>
+        <member name="P:Volley.Team.ITeam.Identifier">
+            <summary>
+            Gets the identifier of the team.
+            </summary>
+        </member>
+        <member name="P:Volley.Team.ITeam.Name">
+            <summary>
+            Gets the name of the team.
+            </summary>
+        </member>
+        <member name="P:Volley.Team.ITeam.Item(System.Int32)">
+            <summary>
+            Gets a player of the team by <paramref name="index"/>.
+            </summary>
+            <param name="index">The player index.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Volley.Team.ITeam.PlayerCount">
+            <summary>
+            Gets the number of players.
+            </summary>
+            <value>The player count.</value>
+        </member>
+        <member name="P:Volley.Team.ITeam.AllPlayers">
+            <summary>
+            Gets the whole list of players in the team.
+            </summary>
+        </member>
+        <member name="T:Volley.Team.ITeamInMatch">
+            <summary>
+            Defines a base infrastructure of the teams in <see cref="T:Volley.Matches.Match`1"/>.
+            </summary>
+        </member>
+        <member name="P:Volley.Team.ITeamInMatch.CurrentServicePlayer">
+            <summary>
+            Gets the current service player.
+            </summary>
+            <value>The current service player.</value>
+        </member>
+        <member name="M:Volley.Team.ITeamInMatch.OnGameOver">
+            <summary>
+            Called when the game is over.
+            </summary>
+        </member>
+        <member name="M:Volley.Team.ITeamInMatch.OnGameCancelled">
+            <summary>
+            Called when the game is cancelled under recorrection of internal data.
+            </summary>
+        </member>
+        <member name="T:Volley.Tournaments.Tournament">
+            <summary>
+            Defines a base representations of a tournament for standalone.
+            Defines a base infrastructure of a tournament for government.
+            </summary>
+        </member>
+        <member name="P:Volley.Tournaments.Tournament.Name">
+            <summary>
+            Gets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Volley.Tournaments.Tournament.Location">
+            <summary>
+            Gets the location.
+            </summary>
+            <value>The location.</value>
+        </member>
+    </members>
+</doc>

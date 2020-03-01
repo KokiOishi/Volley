@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:s="clr-namespace:Volley.Mobile.Forms.Views.SetupElement"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             Title="アドバンテージセットの詳細設定"
+             x:Class="Volley.Mobile.Forms.Views.Rules.AdvantageSetSetupPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <TableView Intent="Settings">
+            <TableRoot>
+                <TableSection Title="ルール">
+                    <SwitchCell Text="デュース" On="{Binding HasDeuce, Mode=TwoWay}" />
+                    <s:StepperFormCell Text="最小ゲーム数差" Description="セットを取るために必要なゲーム数の差" Increment="1" Maximum="4" Minimum="1"
+                                       Value="{Binding LeastWinningDifference, Mode=TwoWay}" />
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        <Button Text="次へ" Grid.Row="1" Command="{Binding CommandNext}" />
+    </Grid>
+</ContentPage>
